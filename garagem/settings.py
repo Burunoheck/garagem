@@ -1,3 +1,5 @@
+import os
+
 """
 Django settings for garagem project.
 
@@ -21,7 +23,7 @@ SECRET_KEY = "django-insecure-&3!*gjwbk9gj#dgta^a1=b-gom5=^(v8zzbt&tnawz(+d87!wa
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 INSTALLED_APPS = [
@@ -43,6 +45,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = "garagem.urls"
@@ -103,3 +106,5 @@ STATIC_URL = "static/"
 
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
